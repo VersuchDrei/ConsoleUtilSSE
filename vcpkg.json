@@ -1,0 +1,9 @@
+{
+  "name": "console-util-sse",
+  "version-string": "1",
+  "dependencies": [
+    "boost-stl-interfaces",
+    "rsm-binary-io",
+    "spdlog"
+  ]
+}

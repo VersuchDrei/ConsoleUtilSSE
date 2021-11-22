@@ -6,6 +6,9 @@ namespace Events
 		public RE::BSTEventSink<RE::MenuOpenCloseEvent>
 	{
 	public:
+		MenuOpenCloseEventHandler(const volatile MenuOpenCloseEventHandler&) = delete;
+		MenuOpenCloseEventHandler& operator=(const volatile MenuOpenCloseEventHandler&) = delete;
+
 		static inline MenuOpenCloseEventHandler* GetSingleton()
 		{
 			static MenuOpenCloseEventHandler singleton;
@@ -17,7 +20,7 @@ namespace Events
 			const auto ui = RE::UI::GetSingleton();
 			if (ui) {
 				ui->AddEventSink(GetSingleton());
-				logger::info("Registered {}"sv, typeid(MenuOpenCloseEventHandler).name());
+				logger::debug("Registered menu open/close handler"sv);
 			}
 		}
 
@@ -44,15 +47,10 @@ namespace Events
 
 	private:
 		MenuOpenCloseEventHandler() = default;
-		MenuOpenCloseEventHandler(const MenuOpenCloseEventHandler&) = delete;
-		MenuOpenCloseEventHandler(MenuOpenCloseEventHandler&&) = delete;
-		virtual ~MenuOpenCloseEventHandler() = default;
-
-		MenuOpenCloseEventHandler& operator=(const MenuOpenCloseEventHandler&) = delete;
-		MenuOpenCloseEventHandler& operator=(MenuOpenCloseEventHandler&&) = delete;
 	};
 
 	inline void Register()
 	{
+		MenuOpenCloseEventHandler::Register();
 	}
 }

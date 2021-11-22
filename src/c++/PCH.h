@@ -9,7 +9,6 @@
 
 #include <memory>
 #include <string>
-#include <typeinfo>
 
 #ifdef NDEBUG
 #include <spdlog/sinks/basic_file_sink.h>
@@ -20,5 +19,6 @@
 using namespace std::literals;
 
 namespace logger = SKSE::log;
+namespace stl = SKSE::stl;
 
 #define DLLEXPORT __declspec(dllexport)
