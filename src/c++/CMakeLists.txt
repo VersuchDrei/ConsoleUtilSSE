@@ -19,11 +19,18 @@ configure_file(
 
 source_group("include" FILES "${VERSION_HEADER}")
 
+configure_file(
+	"${ROOT_DIR}/cmake/version.rc.in"
+	"${CMAKE_CURRENT_BINARY_DIR}/version.rc"
+	@ONLY
+)
+
 add_library(
 	"${PROJECT_NAME}"
 	SHARED
 	${SOURCE_FILES}
 	"${VERSION_HEADER}"
+	"${CMAKE_CURRENT_BINARY_DIR}/version.rc"
 	"${ROOT_DIR}/.clang-format"
 	"${ROOT_DIR}/.editorconfig"
 )
