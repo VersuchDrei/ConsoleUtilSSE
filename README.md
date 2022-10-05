@@ -1,7 +1,4 @@
-# ConsoleUtilSSE
-
-## Build Dependencies
-* [CommonLibSSE](https://github.com/Ryan-rsm-McKenzie/CommonLibSSE)
+# ConsoleUtilSSE-NG
 
 ## End User Dependencies
 * [SKSE64](https://skse.silverlock.org/)

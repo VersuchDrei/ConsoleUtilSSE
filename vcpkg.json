@@ -1,9 +1,23 @@
 {
-  "name": "console-util-sse",
-  "version-string": "1",
-  "dependencies": [
-    "boost-stl-interfaces",
-    "rsm-binary-io",
-    "spdlog"
-  ]
+    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
+    "name": "console-util-sse",
+    "version-string": "1.3.2",
+    "port-version": 0,
+    "description": "",
+    "homepage": "",
+    "license": "MIT",
+    "features": {
+        "plugin": {
+            "description": "Build the SKSE plugin.",
+            "dependencies": [
+                "boost-stl-interfaces",
+                "rsm-binary-io",
+                "articuno",
+                "commonlibsse-ng"
+            ]
+        }
+    },
+    "default-features": [
+        "plugin"
+    ]
 }
