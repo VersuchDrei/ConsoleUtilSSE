@@ -20,9 +20,6 @@ configure_file(
         ${CMAKE_CURRENT_BINARY_DIR}/version.rc
         @ONLY)
 
-set(headers
-        include/Header/Header.h)
-
 set(sources
         src/main.cpp
 
@@ -31,7 +28,6 @@ set(sources
 source_group(
         TREE ${CMAKE_CURRENT_SOURCE_DIR}
         FILES
-        ${headers}
         ${sources})
 
 ########################################################################################################################
@@ -41,7 +37,7 @@ find_package(CommonLibSSE CONFIG REQUIRED)
 find_package(ryml CONFIG REQUIRED)
 find_path(ARTICUNO_INCLUDE_DIRS "articuno/articuno.h")
 
-add_commonlibsse_plugin(${PROJECT_NAME} SOURCES ${headers} ${sources})
+add_commonlibsse_plugin(${PROJECT_NAME} SOURCES ${sources})
 add_library("${PROJECT_NAME}::${PROJECT_NAME}" ALIAS "${PROJECT_NAME}")
 
 target_include_directories(${PROJECT_NAME}
