@@ -4,12 +4,6 @@
 #include <SKSE/SKSE.h>
 #include <REL/Relocation.h>
 
-#include <memory>
-#include <string>
-
-#include <ShlObj_core.h>
-#include <Windows.h>
-#include <Psapi.h>
 #undef cdecl // Workaround for Clang 14 CMake configure error.
 
 #include <spdlog/sinks/basic_file_sink.h>
