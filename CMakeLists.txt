@@ -55,6 +55,11 @@ target_link_libraries(${PROJECT_NAME}
         PRIVATE
         ryml::ryml)
 
+target_compile_definitions(${PROJECT_NAME}
+        PRIVATE
+        SPDLOG_HEADER_ONLY
+        SPDLOG_WCHAR_FILENAMES)
+
 target_precompile_headers(${PROJECT_NAME}
         PRIVATE
         src/PCH.h)

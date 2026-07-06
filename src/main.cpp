@@ -26,7 +26,7 @@ namespace {
         }
 
         *path /= fmt::format("{}.log", PluginDeclaration::GetSingleton()->GetName());
-        auto sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(path->string(), true);
+        auto sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(path->native(), true);
 #endif
 
 #ifndef NDEBUG
