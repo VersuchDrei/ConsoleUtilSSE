@@ -1,5 +1,7 @@
 #pragma once
 
+#undef SPDLOG_COMPILED_LIB
+
 #include <RE/Skyrim.h>
 #include <SKSE/SKSE.h>
 #include <REL/Relocation.h>
