@@ -15,17 +15,16 @@ namespace Papyrus
             const auto scriptFactory = RE::IFormFactory::GetConcreteFormFactoryByType<RE::Script>();
             const auto script = scriptFactory ? scriptFactory->Create() : nullptr;
             if (script) {
-                const auto selectedRef = GetSelectedRef();
+                const auto selectedRef = RE::Console::GetSelectedRef();
                 script->SetCommand(a_command);
-                //script->CompileAndRun(selectedRef.get());
-				CompileAndRun(script, selectedRef.get());
+                script->CompileAndRun(selectedRef.get());
                 delete script;
             }
         }
 
         static inline RE::TESObjectREFR* GetSelectedReference(RE::StaticFunctionTag*)
         {
-            const auto selectedRef = GetSelectedRef();
+            const auto selectedRef = RE::Console::GetSelectedRef();
             return selectedRef.get();
         }
 
@@ -93,28 +92,6 @@ namespace Papyrus
 
     private:
         static constexpr char CLASS_NAME[] = "ConsoleUtil";
-
-        static inline void CompileAndRun(RE::Script* script, RE::TESObjectREFR* targetRef, RE::COMPILER_NAME name = RE::COMPILER_NAME::kSystemWindowCompiler)
-		{
-			RE::ScriptCompiler compiler;
-			CompileAndRunImpl(script, &compiler, name, targetRef);
-        }
-
-        static inline void CompileAndRunImpl(RE::Script* script, RE::ScriptCompiler* compiler, RE::COMPILER_NAME name, RE::TESObjectREFR* targetRef) {
-			using func_t = decltype(CompileAndRunImpl);
-			REL::Relocation<func_t> func{ RELOCATION_ID(21416, REL::Module::get().version().patch() < 1130 ? 21890 : 441582) };
-			return func(script, compiler, name, targetRef);
-        }
-
-        static inline RE::NiPointer<RE::TESObjectREFR> GetSelectedRef() {
-			auto handle = GetSelectedRefHandle();
-			return handle.get();
-        }
-
-        static inline RE::ObjectRefHandle GetSelectedRefHandle() {
-			REL::Relocation<RE::ObjectRefHandle*> selectedRef{ RELOCATION_ID(519394, REL::Module::get().version().patch() < 1130 ? 405935 : 504099) };
-			return *selectedRef;
-        }
     };
 
     inline bool Register(RE::BSScript::IVirtualMachine* a_vm)

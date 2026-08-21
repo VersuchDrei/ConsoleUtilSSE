@@ -1,23 +1,24 @@
 {
-    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
-    "name": "console-util-sse",
-    "version-string": "1.4.0",
-    "port-version": 0,
-    "description": "",
-    "homepage": "",
-    "license": "MIT",
-    "features": {
-        "plugin": {
-            "description": "Build the SKSE plugin.",
-            "dependencies": [
-                "boost-stl-interfaces",
-                "rsm-binary-io",
-                "articuno",
-                "commonlibsse-ng"
-            ]
-        }
-    },
-    "default-features": [
-        "plugin"
-    ]
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "deneme",
+  "version-string": "0.1",
+  "dependencies": [
+    "fast-cpp-csv-parser",
+    "rsm-binary-io",
+    "simpleini",
+    "spdlog",
+    "xbyak",
+    "rapidcsv",
+    "directxmath",
+    "directxtk",
+    "boost-stl-interfaces",
+    "clib-util"
+  ],
+  "overrides": [
+    {
+      "name": "fmt",
+      "version": "12.1.0"
+    }
+  ],
+  "builtin-baseline": "e3ed41868d5034bc608eaaa58383cd6ecdbb5ffb"
 }
